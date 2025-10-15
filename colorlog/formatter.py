@@ -4,6 +4,8 @@ import logging
 import os
 import sys
 import typing
+import traceback
+import io
 
 import colorlog.escape_codes
 
@@ -174,6 +176,29 @@ class ColoredFormatter(logging.Formatter):
             message += reset_escape_code
 
         return message
+
+    if sys.version_info >= (3, 13):
+
+        def formatException(self, ei):
+            """Format and return the specified exception information as a string."""
+            # This is a copy of logging.Formatter.formatException that passes in
+            # an appropriate value for colorize to print_exception.
+
+            sio = io.StringIO()
+            tb = ei[2]
+            traceback.print_exception(
+                ei[0],
+                ei[1],
+                tb,
+                limit=None,
+                file=sio,
+                colorize=not self._blank_escape_codes(),
+            )
+            s = sio.getvalue()
+            sio.close()
+            if s[-1:] == "\n":
+                s = s[:-1]
+            return s
 
 
 class LevelFormatter:
