@@ -213,7 +213,7 @@ Tests similar to the above examples are found in `tests/test_colorlog.py`.
 ## Status
 
 colorlog is in maintenance mode. I try and ensure bugfixes are published,
-but compatibility with Python 2.6+ and Python 3+ makes this a difficult
+but compatibility a wide set of Python versions makes this a difficult
 codebase to add features to. Any changes that might break backwards
 compatibility for existing users will not be considered.
 
@@ -233,7 +233,7 @@ Some early adopters included [Errbot], [Pythran], and [zenlog].
 
 ## Licence
 
-Copyright (c) 2012-2021 Sam Clements <sam@borntyping.co.uk>
+Copyright (c) 2012-2025 Sam Clements <sam@borntyping.co.uk>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
